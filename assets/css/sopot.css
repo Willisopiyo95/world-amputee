@@ -492,10 +492,10 @@ ul {
 }
 
 .main-menu-wrapper__logo {
-    position: relative;
+    position:relative;
     float: left;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .main-menu-wrapper__right {
