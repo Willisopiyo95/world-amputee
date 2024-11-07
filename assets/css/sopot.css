@@ -8458,28 +8458,34 @@ ul {
     margin-bottom: 30px;
 }
 
+
+
 .join-team__input input[type="text"],
 .join-team__input input[type="email"] {
-    height: 64px;
+    height: 50px;
     width: 100%;
-    border: none;
+    background-color: transparent;
+    border: 1px solid #ebebeb; /* Added border with a solid color */
     outline: none;
-    background-color: rgba(var(--sopot-base-rgb), .10);
+    background-color: rgba(var(--sopot-gray), .10);
     color: var(--sopot-gray);
-    font-size: 14px;
-    padding: 0 30px;
+    font-size: 17px;
+    padding: 0 20px;
+    border-radius: 0;
+    
 }
 
 .join-team__input textarea {
     height: 180px;
     width: 100%;
-    border: none;
+    border: 1px solid #ccc; /* Added border with a solid color */
     outline: none;
-    background-color: rgba(var(--sopot-base-rgb), .10);
+    background-color: rgba(var(--sopot-white), .10);
     color: var(--sopot-gray);
     font-size: 14px;
     padding: 18px 30px 30px;
 }
+
 
 .join-team__input.join-team__message-box {
     height: 180px;
@@ -8598,8 +8604,9 @@ ul {
 .contact-page {
     position: relative;
     display: block;
-    padding: 120px 0 140px;
+    padding: 100px 20px; /* Adjusted padding for better spacing on mobile */
     z-index: 1;
+    background-color: #f9f9f9; /* Add subtle background color */
 }
 
 .contact-page-bg {
@@ -8611,13 +8618,19 @@ ul {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0.02;
+    opacity: 0.1; /* Increased opacity for a subtle background */
     z-index: -1;
 }
 
 .contact-page__form {
     position: relative;
     display: block;
+    max-width: 600px; /* Limit form width for readability */
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff; /* Form background color */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners for a modern look */
 }
 
 .contact-page__form .text-message-box {
@@ -8626,21 +8639,61 @@ ul {
 
 .contact-page__form .comment-form__input-box textarea {
     height: 200px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px; /* Consistent border radius */
+    border: 1px solid #ddd; /* Subtle border color */
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Allow resizing vertically */
 }
+
+.contact-page__form .comment-form__input-box select,
+.contact-page__form .comment-form__input-box input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333; /* Text color to match other form fields */
+    background-color: #fff; /* Background color for consistency */
+    margin-bottom: 20px;
+}
+
+.contact-page__form .comment-form__input-box select {
+    appearance: none; /* Remove default dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    color: #333; /* Ensure text color matches */
+    padding-right: 30px; /* Extra padding for custom arrow */
+}
+
+/* Style the dropdown options for a better appearance */
+.contact-page__form .comment-form__input-box select option {
+    color: #333;
+    background-color: #fff;
+}
+
 
 .contact-page__right {
     position: relative;
     display: block;
+    padding-top: 30px; /* Add spacing */
 }
 
 .contact-page__img {
     position: relative;
     display: block;
     z-index: 2;
+    max-width: 100%; /* Ensure image doesn’t overflow */
+    margin-bottom: 20px; /* Space below image */
 }
 
-.contact-page__img>img {
+.contact-page__img > img {
     width: 100%;
+    border-radius: 8px; /* Match form radius for cohesion */
 }
 
 .contact-page__img-shape {
@@ -8648,11 +8701,43 @@ ul {
     bottom: -20px;
     right: -20px;
     z-index: -1;
+    width: 80px; /* Set a default shape size */
+    opacity: 0.3; /* Lighter opacity for decoration */
 }
 
-.contact-page__img-shape>img {
+.contact-page__img-shape > img {
     width: 100%;
 }
+.comment-form__input-box input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333; /* Input text color */
+    background-color: #fff; /* Background color */
+    margin-bottom: 20px;
+    appearance: none; /* Removes default date styling */
+    
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position the arrow */
+    padding-right: 30px; /* Space for the custom arrow */
+    box-sizing: border-box;
+}
+
+.comment-form__input-box input[type="date"]::-webkit-inner-spin-button, 
+.comment-form__input-box input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0; /* Hide default calendar icon */
+}
+
+.comment-form__input-box input[type="date"]:focus {
+    border-color: #aaa; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on focus */
+}
+
+
 
 
 /*--------------------------------------------------------------
