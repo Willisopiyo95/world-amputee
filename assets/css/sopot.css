@@ -496,7 +496,7 @@ ul {
     float:left;
     padding-top: 20px;
     padding-bottom: 20px;
-    
+
     
    
 }
@@ -1429,8 +1429,8 @@ ul {
     transform: scale(1);
     background-blend-mode: luminosity;
     transition: transform 7000ms ease, opacity 1500ms ease-in;
-    opacity: .20;
-    background-color: var(--sopot-black);
+    /* opacity: .20; */
+    /* background-color: var(--sopot-black); */
     z-index: 1;
 }
 
@@ -6912,8 +6912,8 @@ ul {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    mix-blend-mode: luminosity;
-    opacity: .20;
+    /* mix-blend-mode: luminosity; */
+    /* opacity: .20; */
     z-index: -1;
 }
 
