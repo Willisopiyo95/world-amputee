@@ -493,13 +493,12 @@ ul {
 
 .main-menu-wrapper__logo {
     position:relative;
-    float: left;
-    max-width: 150px;
+    float:left;
+    padding-top: 20px;
+    padding-bottom: 20px;
     
     
-    
-    
-    
+   
 }
 
 .main-menu-wrapper__right {
@@ -541,8 +540,9 @@ ul {
 
 .main-menu .main-menu__list>li,
 .stricky-header .main-menu__list>li {
-    padding-top: 42px;
-    padding-bottom: 42px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
     position: relative;
 }
 
