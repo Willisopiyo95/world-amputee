@@ -494,8 +494,12 @@ ul {
 .main-menu-wrapper__logo {
     position:relative;
     float: left;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    max-width: 150px;
+    
+    
+    
+    
+    
 }
 
 .main-menu-wrapper__right {
