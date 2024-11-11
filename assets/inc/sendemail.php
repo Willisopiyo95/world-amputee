@@ -1,44 +1,41 @@
 <?php
 
-// Define some constants
-define( "RECIPIENT_NAME", "John Doe" );
-define( "RECIPIENT_EMAIL", "mail@mail.com" );
+// Define constants
+define("RECIPIENT_NAME", "Wacafederation");
+define("RECIPIENT_EMAIL", "info@wacafederation.com");
 
 // Read the form values
 $success = false;
-$name = isset( $_POST['name'] ) ? preg_replace( "/[^\.\-\' a-zA-Z0-9]/", "", $_POST['name'] ) : "";
-$senderEmail = isset( $_POST['email'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['email'] ) : "";
-$phone = isset( $_POST['phone'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['phone'] ) : "";
-$services = isset( $_POST['services'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['services'] ) : "";
-$subject = isset( $_POST['subject'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['subject'] ) : "";
-$address = isset( $_POST['address'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['address'] ) : "";
-$website = isset( $_POST['website'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['website'] ) : "";
-$message = isset( $_POST['message'] ) ? preg_replace( "/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_POST['message'] ) : "";
+$name = isset($_POST['name']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['name']) : "";
+$dateOfBirth = isset($_POST['date']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['date']) : "";
+$phone = isset($_POST['Phone']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['Phone']) : "";
+$gender = isset($_POST['gender']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['gender']) : "";
+$country = isset($_POST['country']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['country']) : "";
+$address = isset($_POST['Address']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['Address']) : "";
+$event = isset($_POST['Event']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['Event']) : "";
 
-$mail_subject = 'A contact request send by ' . $name;
+// Compose email subject and body
+$mail_subject = 'New Event Registration from ' . $name;
 
-$body = 'Name: '. $name . "\r\n";
-$body .= 'Email: '. $senderEmail . "\r\n";
+$body = 'Name: ' . $name . "\r\n";
+$body .= 'Date of Birth: ' . $dateOfBirth . "\r\n";
+$body .= 'Phone: ' . $phone . "\r\n";
+$body .= 'Gender: ' . $gender . "\r\n";
+$body .= 'Country: ' . $country . "\r\n";
+$body .= 'Address: ' . $address . "\r\n";
+$body .= 'Event: ' . $event . "\r\n";
 
-
-if ($phone) {$body .= 'Phone: '. $phone . "\r\n"; }
-if ($services) {$body .= 'services: '. $services . "\r\n"; }
-if ($subject) {$body .= 'Subject: '. $subject . "\r\n"; }
-if ($address) {$body .= 'Address: '. $address . "\r\n"; }
-if ($website) {$body .= 'Website: '. $website . "\r\n"; }
-
-$body .= 'message: ' . "\r\n" . $message;
-
-
-
-// If all values exist, send the email
-if ( $name && $senderEmail && $message ) {
+// Send the email if all required fields are filled
+if ($name && $phone && $event) {
   $recipient = RECIPIENT_NAME . " <" . RECIPIENT_EMAIL . ">";
-  $headers = "From: " . $name . " <" . $senderEmail . ">";  
-  $success = mail( $recipient, $mail_subject, $body, $headers );
-  echo "<div class='inner success'><p class='success'>Thanks for contacting us. We will contact you ASAP!</p></div><!-- /.inner -->";
-}else {
-	echo "<div class='inner error'><p class='error'>Something went wrong. Please try again.</p></div><!-- /.inner -->";
-}
+  $headers = "From: " . $name . " <no-reply@yourdomain.com>";
+  $success = mail($recipient, $mail_subject, $body, $headers);
 
-?>
+  if ($success) {
+    echo "<div class='inner success'><p class='success'>Thanks for registering. We will contact you ASAP!</p></div>";
+  } else {
+    echo "<div class='inner error'><p class='error'>Something went wrong. Please try again.</p></div>";
+  }
+} else {
+  echo "<div class='inner error'><p class='error'>Please fill in all required fields.</p></div>";
+}
