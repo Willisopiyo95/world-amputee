@@ -20,10 +20,16 @@ $body = "Name: $name\nDate of Birth: $dateOfBirth\nPhone: $phone\nGender: $gende
 
 // Send the email if all required fields are filled
 if ($name && $phone && $event) {
-    $recipient = RECIPIENT_NAME . " <" . RECIPIENT_EMAIL . ">";
-    $headers = "From: no-reply@wacafederation.com";  // Use a valid email address from your domain
+  $recipient = RECIPIENT_NAME . " <" . RECIPIENT_EMAIL . ">";
+  $headers = "From: no-reply@wacafederation.com";  // Use a valid email address from your domain
 
-    $success = mail($recipient, $mail_subject, $body, $headers);
+  $success = mail($recipient, $mail_subject, $body, $headers);
 
-    if ($success) {
-        echo "<div class='inner success'><p class='success'>Thanks for registering. We will co
+  if ($success) {
+    echo "<div class='inner success'><p class='success'>Thanks for contacting us. We will get back to you ASAP!</p></div>";
+  } else {
+    echo "<div class='inner error'><p class='error'>Something went wrong. Please try again.</p></div>";
+  }
+} else {
+  echo "<div class='inner error'><p class='error'>Please complete all required fields.</p></div>";
+}
