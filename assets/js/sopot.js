@@ -192,27 +192,81 @@
     $('.contact-form-validated').validate({
       // initialize the plugin
       rules: {
-        name: { required: true },
+        first_name: { required: true },
+        last_name: { required: true },
         email: { required: true, email: true },
         message: { required: true },
-        Phone: { required: true },
-        date: { required: true },
-        gender: { required: true }
+        phone: { required: true },
+        address: { required: true },
+        country: { required: true }
       },
 
       submitHandler: function (form) {
-        // sending value with ajax request
-        $.post(
-          $(form).attr('action'),
-          $(form).serialize(),
-          function (response) {
-            $(form).parent().find('.result').append(response);
-            $(form).find('input[type="text"]').val('');
-            $(form).find('input[type="email"]').val('');
-            $(form).find('textarea').val('');
+        // Send value with AJAX request
+        $.ajax({
+          type: 'POST',
+          url: $(form).attr('action'),
+          data: $(form).serialize(),
+          success: function (response) {
+            // Display the server response in the result area
+            $(form).parent().find('.result').html(response);
+
+            // Clear form fields after successful submission
+            $(form)
+              .find('input[type="text"], input[type="email"], textarea')
+              .val('');
+          },
+          error: function () {
+            // Handle error case
+            $(form)
+              .parent()
+              .find('.result')
+              .html(
+                "<p class='error'>There was an error sending the form. Please try again.</p>"
+              );
           }
-        );
-        return false;
+        });
+        return false; // Prevent default form submission
+      }
+    });
+  }
+  if ($('.contact-form-validated2').length) {
+    $('.contact-form-validated2').validate({
+      // Initialize the plugin with rules
+      rules: {
+        name: { required: true },
+        email: { required: true, email: true },
+        phone: { required: true },
+        subject: { required: false },
+        message: { required: true }
+      },
+
+      submitHandler: function (form) {
+        // Send data with AJAX
+        $.ajax({
+          type: 'POST',
+          url: $(form).attr('action'),
+          data: $(form).serialize(),
+          success: function (response) {
+            // Display the server response in the result area
+            $(form).parent().find('.result').html(response);
+
+            // Clear form fields after successful submission
+            $(form)
+              .find('input[type="text"], input[type="email"], textarea')
+              .val('');
+          },
+          error: function () {
+            // Handle error case
+            $(form)
+              .parent()
+              .find('.result')
+              .html(
+                "<p class='error'>There was an error sending the form. Please try again.</p>"
+              );
+          }
+        });
+        return false; // Prevent default form submission
       }
     });
   }
