@@ -181,51 +181,53 @@
                             </div> -->
                     <div class="donate-now__personal-info-box">
                         <h3 class="donate-now__title">Personal Info</h3>
-                        <form class="donate-now__personal-info-form">
+                        <form action="assets/inc/sendemail4.php" method="post"
+                            class="donate-now__personal-info-form contact-form-validated" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xl-6">
                                     <div class="donate-now__personal-info-input">
-                                        <input type="text" placeholder="First Name" name="name">
+                                        <input type="text" placeholder="First Name" name="first_name" required>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="donate-now__personal-info-input">
-                                        <input type="text" placeholder="Last Name" name="last-name">
+                                        <input type="text" placeholder="Last Name" name="last_name" required>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="donate-now__personal-info-input">
-                                        <input type="email" placeholder="Email Address" name="email">
+                                        <input type="email" placeholder="Email Address" name="email" required>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="donate-now__personal-info-input">
-                                        <input type="text" placeholder="Phone Number" name="phone">
+                                        <input type="text" placeholder="Phone Number" name="phone" required>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="donate-now__personal-info-input">
-                                        <input type="text" placeholder="Address" name="Address">
+                                        <input type="text" placeholder="Address" name="address" required>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="donate-now__personal-info-input">
-                                        <input type="text" placeholder="Country" name="Country">
+                                        <input type="text" placeholder="Country" name="country" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="donate-now__personal-info-input donate-now__personal-info-message-box">
-                                        <textarea name="message" placeholder="Write a Comment"></textarea>
+                                        <textarea name="message" placeholder="Write a Comment" required></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="comment-form__btn-box">
-                                <button type="submit" class="thm-btn comment-form__btn">Send a
-                                    message</button>
+                                <button type="submit" class="thm-btn comment-form__btn">Send a message</button>
                             </div>
                         </form>
+
+
                     </div>
                     <!-- <div class="donate-now__payment-info">
                                 <h3 class="donate-now__title">Payment Info</h3>
@@ -408,7 +410,7 @@
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@sopot.com">needhelp@sopot.com</a>
+                    <a href="mailto:info@wacafederation.com">info@wacafederation.com</a>
                 </li>
                 <!-- <li>
                     <i class="fa fa-phone-alt"></i>

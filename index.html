@@ -662,7 +662,7 @@
                             <img src="assets/images/team/team-1-1.jpg" alt="">
                         </div>
                         <div class="team-one__content">
-                            <h4 class="team-one__name"><a href="team-details.html">Victor Khasandi</a></h4>
+                            <h4 class="team-one__name"><a href="#">Victor Khasandi</a></h4>
                             <p class="team-one__title">Founder/President</p>
                             <!-- <div class="team-one__social">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -680,7 +680,7 @@
                             <img src="assets/images/team/team-1-2.jpg" alt="">
                         </div>
                         <div class="team-one__content">
-                            <h4 class="team-one__name"><a href="team-details.html">Candace Williams</a></h4>
+                            <h4 class="team-one__name"><a href="#">Candace Williams</a></h4>
                             <p class="team-one__title">Director</p>
                             <!-- <div class="team-one__social">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -709,44 +709,48 @@
                                 event<br>You can participate in as many events as you wish</p>
                         </div>
                         <div class="contact-page__form">
-                            <form action="assets/inc/sendemail.php" class="comment-one__form contact-form-validated"
-                                novalidate="novalidate">
+                            <form action="assets/inc/sendemail.php" method="post"
+                                class="comment-one__form contact-form-validated" novalidate="novalidate">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Your name" name="name">
+                                            <input type="text" placeholder="Your name" name="name" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="join-team__input">
-                                            <input type="text" placeholder="Date of Birth" name="date" id="datepicker">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Phone number" name="Phone">
+                                            <input type="text" placeholder="Date of Birth" name="date" id="datepicker"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Gender" name="gender">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Country" name="country">
+                                            <input type="email" placeholder="Email" name="email" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Address" name="Address">
+                                            <input type="text" placeholder="Phone number" name="phone" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="comment-form__input-box">
-                                            <select name="Event">
+                                            <input type="text" placeholder="Gender" name="gender" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="comment-form__input-box">
+                                            <input type="text" placeholder="Country" name="country" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="comment-form__input-box">
+                                            <input type="text" placeholder="Address" name="address" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="comment-form__input-box">
+                                            <select name="event" required>
                                                 <option value="">Select Event</option>
                                                 <option value="100m">100m</option>
                                                 <option value="200m">200m</option>
@@ -757,25 +761,19 @@
                                                 <option value="4x200m">4x200m</option>
                                                 <option value="4x400m">4x400m</option>
                                                 <option value="Mixed relay">Mixed relay</option>
-
                                             </select>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <!-- <div class="comment-form__input-box text-message-box">
-                                                <textarea name="message" placeholder="Write a comment"></textarea>
-                                            </div> -->
                                         <div class="comment-form__btn-box">
-                                            <button type="submit" class="thm-btn comment-form__btn">Register
-                                            </button>
+                                            <button type="submit" class="thm-btn comment-form__btn">Register</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

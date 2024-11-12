@@ -1,24 +1,19 @@
 <?php
-
 // Define constants for recipient information
-define("RECIPIENT_NAME", "wacafederation");  // Change to your recipient's name
-define("RECIPIENT_EMAIL", "info@wacafederation.com");  // Change to your recipient's email address
+define("RECIPIENT_NAME", "wacafederation");
+define("RECIPIENT_EMAIL", "info@wacafederation.com");
 
-// Read the form values
-$success = false;
+// Read the form values and sanitize them
 $name = isset($_POST['name']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['name']) : "";
 $senderEmail = isset($_POST['email']) ? preg_replace("/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['email']) : "";
-$phone = isset($_POST['Phone']) ? preg_replace("/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['Phone']) : "";
+$phone = isset($_POST['phone']) ? preg_replace("/[^\.\-0-9]/", "", $_POST['phone']) : "";
 $message = isset($_POST['message']) ? preg_replace("/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_POST['message']) : "";
 
-// Email subject and body
+// Compose email subject and body
 $mail_subject = 'A contact request from ' . $name;
-$body = 'Name: ' . $name . "\r\n";
-$body .= 'Email: ' . $senderEmail . "\r\n";
-$body .= 'Phone: ' . $phone . "\r\n";
-$body .= 'Message: ' . "\r\n" . $message;
+$body = "Name: $name\nEmail: $senderEmail\nPhone: $phone\nMessage:\n$message";
 
-// If required values exist, send the email
+// Send the email if all required values exist
 if ($name && $senderEmail && $message) {
   $recipient = RECIPIENT_NAME . " <" . RECIPIENT_EMAIL . ">";
   $headers = "From: " . $name . " <" . $senderEmail . ">";
