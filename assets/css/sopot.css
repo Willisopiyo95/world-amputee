@@ -500,6 +500,12 @@ ul {
     
    
 }
+.main-menu-wrapper__logo img {
+    width: 156px; /* Set width to the image's original size */
+    height: 42px; /* Set height to the image's original size */
+    object-fit: contain; /* Ensures image fits without distortion */
+}
+
 
 .main-menu-wrapper__right {
     position: relative;
