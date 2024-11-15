@@ -270,6 +270,49 @@
       }
     });
   }
+  if ($('.contact-form-validated5').length) {
+    $('.contact-form-validated5').validate({
+      // Initialize the plugin with rules
+      rules: {
+        name: { required: true },
+        date: { required: true },
+        email: { required: true, email: true },
+        phone: { required: true },
+        gender: { required: true },
+        country: { required: true },
+        address: { required: true },
+        event: { required: true }
+      },
+
+      submitHandler: function (form) {
+        // Send data with AJAX
+        $.ajax({
+          type: 'POST',
+          url: $(form).attr('action'),
+          data: $(form).serialize(),
+          success: function (response) {
+            // Display the server response in the result area
+            $(form).parent().find('.result').html(response);
+
+            // Clear form fields after successful submission
+            $(form)
+              .find('input[type="text"], input[type="email"], select')
+              .val('');
+          },
+          error: function () {
+            // Handle error case
+            $(form)
+              .parent()
+              .find('.result')
+              .html(
+                "<p class='error'>There was an error sending the form. Please try again.</p>"
+              );
+          }
+        });
+        return false; // Prevent default form submission
+      }
+    });
+  }
 
   // mailchimp form
   if ($('.mc-form').length) {
